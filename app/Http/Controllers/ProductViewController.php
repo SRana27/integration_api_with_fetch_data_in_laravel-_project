@@ -32,9 +32,24 @@ class ProductViewController extends Controller
       
        $category_response =json_decode($categories_requests->getBody(),true);
        $categories= $category_response['data'];
-        
-      return view('welcome',compact('categories'));
+       $url1 ='https://fakestoreapi.com/products';
+       $products_request = $client->get($url1);
+       $product_response=json_decode( $products_request->getBody(),true);
+      $products= $product_response;
+      return view('welcome',compact('categories','products'));
 
     }
+
+    // public function show()
+    // {
+    //     $client = new \GuzzleHttp\Client();
+    //     $url ='https://fakestoreapi.com/products';
+    //     $products_request = $client->get($url);
+    //     $product_response=json_decode( $products_request->getBody(),true);
+    //    $products= $product_response;
+    //    return view('welcome',compact('products'));
+    // }
+
+
 }
    
