@@ -19,4 +19,6 @@ use App\Http\Controllers\ProductViewController;
 // });
 
  Route::get('/categories',[ProductViewController::class,'index']);
- Route::get('/products',[ProductViewController::class,'show']);
+ Route::get('/category-name',[ProductViewController::class,'categortList']);
+ 
+//  Route::get('/products',[ProductViewController::class,'show']);
